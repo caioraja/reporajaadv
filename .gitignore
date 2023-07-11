@@ -1,7 +1,10 @@
-.vscode/launch.json
-.vscode/settings.json
+.vscode
+__pycache__
+.ipynb_checkpoints
 src/modelos
 src/__pycache__
 DM LIMPEZA E CONSERVAÇÃO.log
 teste.ipynb
 Estudo.ipynb
+T1.docx
+tasks.txt

@@ -1,27 +1,32 @@
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
+
 def change_marca_cliente(doc, MARCA_DO_CLIENTE):
     for run in doc.paragraphs:
         for par in run.runs:
             if par.text == "MARCA DO CLIENTE":
                 par.text = MARCA_DO_CLIENTE
 
+
 def change_modelo(doc, palavra, modelo):
     for run in doc.paragraphs:
         for par in run.runs:
             if par.text == palavra:
                 par.text = modelo
-                
+
+
 def add_texto(doc, n_paragrafo, n_run, texto):
     run = doc.paragraphs[n_paragrafo]
     run.runs[n_run].text = f" {texto}" if n_run != 0 else texto
     run.aligment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
-def funcionario_ideal(doc, dic, par, index):
-    for run in doc.paragraphs[par]:
-        for par in run.runs:
-            if par.text == "AAAAA":
-                par.text = dic['Funcionario Ideal'][index]
+
+def funcionario_ideal(doc, num, par):
+    run = doc.paragraphs[par]
+    for p in run.runs:
+        if p.text == "AAAAA":
+            p.text = "Obrigatoriamente" if num == 1 else "Preferencialmente"
+
 
 def ed_texto(doc, dic):
     add_texto(doc, 101, 0, dic["historia"][1])
@@ -155,5 +160,67 @@ def ed_texto(doc, dic):
     else:
         run285.clear()
 
+    FUNCIONARIO_IDEAL = [293, 295, 296, 298]
+    for par in FUNCIONARIO_IDEAL:
+        funcionario_ideal(
+            doc, dic["Funcionario Ideal"][FUNCIONARIO_IDEAL.index(par)], par
+        )
 
-    doc.save("T2.docx")
+    run300 = doc.paragraphs[300]
+    if dic["Funcionario Ideal"][4] == 1:
+        for run in run300.runs:
+            if run.text == "AAAAA":
+                run.text = "Obrigatoriamente"
+        run301 = doc.paragraphs[301]
+        run301.clear()
+    else:
+        for run in runx.runs:
+            if run.text == "AAAAA":
+                run.text = "Preferencialmente"
+        run300.clear()
+
+    if dic["Funcionario Ideal"][5] == 1:
+        for i in [304, 305, 306]:
+            runx = doc.paragraphs[i]
+            runx.clear()
+
+    elif dic["Funcionario Ideal"][5] == 2:
+        for i in [303, 305, 306]:
+            runx = doc.paragraphs[i]
+            runx.clear()
+
+    elif dic["Funcionario Ideal"][6] == 1:
+        for i in [303, 304, 306]:
+            runx = doc.paragraphs[i]
+            runx.clear()
+    else:
+        for i in [303, 304, 305]:
+            runx = doc.paragraphs[i]
+            runx.clear()
+
+    if dic['Pendencia'] == 1:
+        run344 = doc.paragraphs[344]
+        run344.clear()
+    else:
+        for i in [346, 347]:
+            runx = doc.paragraphs[i]
+            runx.clear()
+    
+    if dic['Balanço'] == 1:
+        for i in [358, 360, 362]:
+            runx = doc.paragraphs[i]
+            runx.clear()
+    else:
+        for i in [354, 356]:
+            runx = doc.paragraphs[i]
+            runx.clear()
+    
+    if dic['Envolvimento'] == 1:
+        for i in [374,376]:
+            runx = doc.paragraphs[i]
+            runx.clear()
+    else:
+        run372 = doc.paragraphs[372]
+        run372.clear()
+    
+    doc.save("T1.docx")

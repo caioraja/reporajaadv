@@ -3,9 +3,9 @@ import os
 
 
 def log(dc):
-    os.chdir("C:/Users/caior/Documents/RepoRAJAADV")
-    #log_format = "%(asctime)s:%(levelname)s:%(filename)s:%(message)s"
-    log_format = "%(message)s"
+    os.chdir("D:/Programas/reporajaadv")
+    log_format = "%(asctime)s:%(levelname)s:%(filename)s:%(message)s"
+    #log_format = "%(message)s"
     logging.basicConfig(
         filename=f"{dc['historia'][0]}.log",
         # w -> sobrescreve o arquivo a cada log

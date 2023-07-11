@@ -151,8 +151,8 @@ def questionario():
         "\nos Franqueados devem ter objetivos alinhados aos objetivos da Franqueadora e do projeto MARCA DO CLIENTE ; devem se identificar com a marca e, principalmente, com o seu ramo de atuação;",
         "\nos Franqueados deverão dispor de recursos financeiros próprios  e suficientes para assegurar seu sustento pessoal e a manutenção da unidade franqueada em operação, independentemente das suas expectativas de faturamento da operação franqueada, especialmente no início da sua operação ; isso pode ser determinante para a manutenção da operação durante os primeiros meses;",
         "\nos Franqueados devem apresentar 18 (dezoito) anos de idade, ou mais;",
-        "\nespera-se que os Franqueados apresentem, Ensino Superior completo;",
-        "\nespera-se que os Franqueados apresentem, Ensino Médio completo;",
+        "\nespera-se que os Franqueados apresentem, Ensino Superior completo; (0 para nenhum)",
+        "\nespera-se que os Franqueados apresentem, Ensino Médio completo; (0 para nenhum)",  
     ]
     for i in criterios:
         res = int(input(f"{i} (1 - Obrigatoriamente / 2 - Preferencialmente) - "))
@@ -169,7 +169,7 @@ def questionario():
     pendencias = int(
         input("A empresa possui pendências jurídicas? (1 - Sim / 0 - Não) - ")
     )
-    dic["Pendência"] = pendencias
+    dic["Pendencia"] = pendencias
 
     envolvimento = int(
         input(

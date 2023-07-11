@@ -13,12 +13,12 @@ def main():
         )
         if escolha == 1:
             doc = docx.Document(
-                "C:/Users/caior/Documents/RepoRAJAADV/src/modelos/COFSERVICOSv00.docx"
+                "D:/Programas/reporajaadv/src/modelos/COFSERVICOSv00.docx"
             )
             break
         elif escolha == 2:
             doc = docx.Document(
-                "C:/Users/caior/Documents/RepoRAJAADV/src/modelos/COFPRODUTOSv00.docx"
+                "D:/Programas/reporajaadv/src/modelos/COFPRODUTOSv00.docx"
             )
             break
         else:
@@ -28,10 +28,9 @@ def main():
     log(dc)
     MARCA_DO_CLIENTE = dc["historia"][0]
     change_marca_cliente(doc, MARCA_DO_CLIENTE)
-    for i in range(dc['n_Modelos'][0]):
-        change_modelo(doc, f"M.O. 0{i+1}", dc[f'Modelo{i+1}'][0])
+    for i in range(dc["n_Modelos"][0]):
+        change_modelo(doc, f"M.O. 0{i+1}", dc[f"Modelo{i+1}"][0])
     ed_texto(doc, dc)
-    
 
 
 if __name__ == "__main__":
